@@ -1,0 +1,46 @@
+Nom       : Pointeau
+Prénom    : Quentin
+Groupe TP : A
+
+
+Consigne :  Ci-dessous, répondre à la place des « ... ».
+
+
+=====[ Temps ]==================================================================
+
+Temps passé sur la V1 : 6 heures 15 minutes
+Temps passé sur la V2 : 1 heure 20 minutes
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+Bien sûr, les temps renseignés ici ne sont pas pris en compte dans la notation.
+
+
+=====[ Questions ]==============================================================
+
+Indiquer la relation UML entre Cercle et le Point centre du cercle.
+-------------------------------------------------------------------
+
+Un Cercle est composé d'un Point centre du cercle. De plus, un même Point ne peut
+être associé qu'à un seul Point centre du cercle donc qu'à un seul Cercle. 
+En outre, la durée de vie d'un Point centre du cercle est liée à la durée de vie
+d'un Cercle car lorsqu'un Cercle est détruit, le Point centre du cercle aussi.
+Finalement, on a une relation de composition entre Cercle et le Point centre du
+Cercle.
+
+
+Comment est réalisée l'exigence E18 ?
+-------------------------------------
+
+En créant un nouvel objet de la classe Point lorsqu'on définit un nouveau centre de 
+cercle et en créant aussi un nouvel objet de la classe Point lorsqu'on récupère le
+centre d'un Cercle (méthode getCentre).
+En effet, sans faire cela, on se retrouve à modifier le même point (on modifie le même
+objet accessible par la même poignée en utilisant la méthode translater).
+
+
+=====[ Explications ]===========================================================
+
+(Facultatif) Donner ici les explications supplémentaires utiles à la
+compréhension du travail rendu.
+
+La seule méthode qui n'avait pas été testée était la méthode afficher de la classe Cercle.
+Elle a alors été testée dans la classe ComplementsCercleTest.

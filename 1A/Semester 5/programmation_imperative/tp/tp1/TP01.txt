@@ -1,0 +1,23 @@
+Exerice 2 :
+1.
+File "min_max_serie.py", line 23
+    if entier > max    # nouveau max
+                       ^
+SyntaxError: invalid syntax
+
+Pas d'autres erreurs
+
+2. min_max_serie.adb:32:40: missing "then"
+min_max_serie.adb:37:40: "Enlier" is undefined
+min_max_serie.adb:37:40: possible misspelling of "Entier"
+
+Ces erreurs n'avaient pas été détectées dans le programme python.
+
+3. Le typage statique fort et le compilateur permettent de mettre en évidence
+les erreurs du programme avant l'exécution de celui-ci.
+
+
+
+
+Exercice 3 :
+

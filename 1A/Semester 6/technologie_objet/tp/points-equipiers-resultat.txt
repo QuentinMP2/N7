@@ -1,0 +1,11 @@
+
+Résultat de l'interprétation du fichier points-equipiers.txt :
+
+Nicolai BEUHORRY-SASSUS (nbs5027) :  1.95
+Driss CHRAIBI (dci8858)           :  0.95
+Alice DISSOUBRAY (ady1499)        :  0.00
+Marwa EL OMARI (mei6121)          :  1.05
+Ainji JOMA'A (ajomaa)             :  1.95
+Eloi MOUSSU (emu6940)             :  0.10
+
+Points attribués : 6.00 sur 6

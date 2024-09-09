@@ -1,0 +1,65 @@
+Nom       : POINTEAU
+Prénom    : Quentin
+Groupe TP : A
+
+Les « ... » indiquent les endroits à compléter.
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+
+
+* Temps passé sur la V1 : ... heures ... minutes
+* Temps passé sur la V2 : ... heures ... minutes
+
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+
+
+=====[ Questions ]==============================================================
+
+--------------------------------------------------------------------------------
+Pourquoi l'exception OperationInterditeException ne peut pas être définie
+comme vérifiée par le compilateur ?
+--------------------------------------------------------------------------------
+
+OperationInterditeException n'est pas une exception qui viendrait à l'encontre
+de la robustesse du programme, elle n'a donc pas à être vérifiée.
+De plus, si celle-ci était déclarée comme vérifiée, alors on devrait indiquer
+dans la signature de la méthode retirer que l'on propage cette exception,
+ce qui viendrait à modifier l'interface jeu, ce qui vient à l'encontre du
+principe de réutilisation.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qu'il faut faire pour ajouter un nouveau niveau de jeu, par
+exemple la stratégie lente (C13). Pour plus de précision, on numérotera
+les étapes à faire.
+--------------------------------------------------------------------------------
+
+1. Implémenter une nouvelle réalisation de l'interface Stratégie
+   (StrategieLente) qui correspondra à la stratégie lente.
+2. Ajouter le cas "lente" dans le switch de la méthode Jouer.initialiserJoueur.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qui permet, dans votre conception, de changer dynamiquement
+(en cours d'exécution du programme) la stratégie d'un joueur (C14).
+--------------------------------------------------------------------------------
+
+Etant donné que la stratégie d'un joueur est un attribut (non final) de la
+classe joueur, celle-ci peut être modifiée en cours de jeu grâce à la
+méthode Joueur.setStrategie.
+La méthode Joueur.getPrise appellera alors la méthode getPrise de la nouvelle
+stratégie.
+
+=====[ Explications ]===========================================================
+
+--------------------------------------------------------------------------------
+Donner ici les explications supplémentaires utiles à la compréhension du
+travail rendu.
+--------------------------------------------------------------------------------
+
+...
+
+--------------------------------------------------------------------------------
