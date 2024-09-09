@@ -1,0 +1,21 @@
+#!/bin/bash
+ip link set dev eth0 up
+ip address add 200.206.21.66/27 dev eth0
+ip link set dev eth1 up
+ip address add 200.206.21.129/27 dev eth1
+ip link set dev eth2 up
+ip address add 200.206.21.193/27 dev eth2
+
+# ip route add 200.206.21.32/27 via 200.206.21.65 dev eth0
+# ip route add 200.206.21.224/28 via 200.206.21.65 dev eth0
+# ip route add 200.206.21.240/28 via 200.206.21.65 dev eth0
+# ip route add 200.206.21.96/27 via 200.206.21.194 dev eth2
+# ip route add 200.206.21.160/27 via 200.206.21.194 dev eth2
+
+service quagga start
+
+# Sécurisation pour le serveur web
+iptables -P FORWARD DROP
+iptables -t filter -A FORWARD -p icmp -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --sport 80 -j ACCEPT

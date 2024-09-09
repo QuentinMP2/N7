@@ -1,0 +1,22 @@
+#!/bin/bash
+ip link set dev eth0 up
+ip link set dev eth1 up
+
+ip address add 200.206.21.226/28 dev eth0
+ip address add 192.168.87.1/25 dev eth1
+
+ip route add default via 200.206.21.225 dev eth0
+
+# Lancement du service DHCP
+service isc-dhcp-server start
+
+# Configuration du NAT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+# Sécurisation pour le réseau privé
+iptables -P FORWARD DROP
+iptables -t filter -A FORWARD -p icmp -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --sport 80 -j ACCEPT
+iptables -t filter -A FORWARD -p udp --dport 53 -j ACCEPT
+iptables -t filter -A FORWARD -p udp --sport 53 -j ACCEPT

@@ -1,0 +1,8 @@
+#!/bin/bash
+ip link set dev eth0 up
+ip address add 200.206.21.162/27 dev eth0
+
+ip route add default via 200.206.21.161 dev eth0
+
+# Lancement de bind9
+service bind9 start

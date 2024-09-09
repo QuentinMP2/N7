@@ -1,0 +1,188 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}tpl\PYGZus{}os.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}nxt\PYGZus{}motors.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}ecrobot\PYGZus{}interface.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}ecrobot\PYGZus{}private.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}math.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}tools.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}nxt\PYGZus{}config.h\PYGZdq{}}
+
+\PYG{c+cm}{/* \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} */}
+\PYG{c+cm}{/*  Fonctions de configuration OSEK                                         */}
+\PYG{c+cm}{/* \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} */}
+\PYG{n}{FUNC}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{OS\PYGZus{}APPL\PYGZus{}CODE}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{main}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{n}{StartOS}\PYG{p}{(}\PYG{n}{OSDEFAULTAPPMODE}\PYG{p}{);}
+\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{DeclareTask}\PYG{p}{(}\PYG{n}{pendule}\PYG{p}{);}
+\PYG{n}{DeclareTask}\PYG{p}{(}\PYG{n}{affichage}\PYG{p}{);}
+
+\PYG{n}{DeclareAlarm}\PYG{p}{(}\PYG{n}{alarm\PYGZus{}pendule}\PYG{p}{);}
+\PYG{n}{DeclareAlarm}\PYG{p}{(}\PYG{n}{alarm\PYGZus{}affichage}\PYG{p}{);}
+
+\PYG{c+cm}{/* \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} */}
+\PYG{c+cm}{/* Variables globales du système                                             */}
+\PYG{c+cm}{/* \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} */}
+
+\PYG{c+cm}{/* Gyro calibration */}
+\PYG{k+kt}{int}\PYG{+w}{  }\PYG{n}{gyro\PYGZus{}offset}\PYG{p}{;}\PYG{+w}{                   }\PYG{c+cm}{/* gyroscope sensor offset value(deg)    */}
+\PYG{k+kt}{int}\PYG{+w}{  }\PYG{n}{gyro\PYGZus{}offset\PYGZus{}sum}\PYG{p}{;}\PYG{+w}{               }\PYG{c+cm}{/* sum of gyroscope sensor offset}
+\PYG{c+cm}{                                value(deg)                            */}
+\PYG{k+kt}{int}\PYG{+w}{  }\PYG{n}{avg\PYGZus{}cnt}\PYG{p}{;}\PYG{+w}{                       }\PYG{c+cm}{/* average count to calculate}
+\PYG{c+cm}{                                gyro offset                           */}
+
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{xe}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{l+m+mf}{0.0}\PYG{p}{,}\PYG{l+m+mf}{0.0}\PYG{p}{,}\PYG{l+m+mf}{0.0}\PYG{p}{,}\PYG{l+m+mf}{0.0}\PYG{p}{\PYGZcb{};}\PYG{+w}{    }\PYG{c+cm}{/* equilibrium state                     */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{ue}\PYG{+w}{    }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.0}\PYG{p}{;}\PYG{+w}{                  }\PYG{c+cm}{/* command at equilibrium                */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{];}\PYG{+w}{                         }\PYG{c+cm}{/* state                                 */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}\PYG{+w}{                         }\PYG{c+cm}{/* observations                          */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}\PYG{+w}{                            }\PYG{c+cm}{/* command of the controller (V)         */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{setpoint}\PYG{p}{;}\PYG{+w}{                     }\PYG{c+cm}{/* target value for theta variable       */}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{dt}\PYG{p}{;}
+
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{enum}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{INIT\PYGZus{}MODE}\PYG{p}{,}\PYG{+w}{      }\PYG{c+cm}{/* system initialize mode */}
+\PYG{n}{CAL\PYGZus{}MODE}\PYG{p}{,}\PYG{+w}{       }\PYG{c+cm}{/* gyro sensor offset calibration mode */}
+\PYG{n}{CONTROL\PYGZus{}MODE}\PYG{+w}{    }\PYG{c+cm}{/* balance and RC control mode */}
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n}{MODE\PYGZus{}ENUM}\PYG{p}{;}
+\PYG{n}{MODE\PYGZus{}ENUM}\PYG{+w}{ }\PYG{n}{nxtSegway\PYGZus{}mode}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INIT\PYGZus{}MODE}\PYG{p}{;}
+
+
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{controller}\PYG{+w}{ }\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{K}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{l+m+mf}{0.6700}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{19.9053}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{1.0747}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{1.9614}\PYG{p}{\PYGZcb{};}
+\PYG{n}{u}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ue}\PYG{p}{;}
+\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{u}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{K}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{xe}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{estimateur}\PYG{+w}{ }\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{theta}\PYG{p}{;}
+
+\PYG{c+c1}{// d(psi)/dt \PYGZhy{}\PYGZgt{} d(psi)/dt}
+\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+\PYG{c+c1}{// d(psi)/dt \PYGZhy{}\PYGZgt{} psi}
+\PYG{c+c1}{// On utilise la methode des rectangles}
+\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{dt}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+\PYG{c+c1}{//theta = thetam + psi}
+\PYG{n}{theta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+\PYG{c+c1}{//theta \PYGZhy{}\PYGZgt{} d(theta)/dt}
+\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{theta}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{/}\PYG{n}{dt}\PYG{p}{;}
+\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{theta}\PYG{p}{;}
+
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{n}{TASK}\PYG{p}{(}\PYG{n}{pendule}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{initial\PYGZus{}time}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{k}{switch}\PYG{p}{(}\PYG{n}{nxtSegway\PYGZus{}mode}\PYG{p}{)\PYGZob{}}
+
+\PYG{k}{case}\PYG{p}{(}\PYG{n+no}{INIT\PYGZus{}MODE}\PYG{p}{):}
+
+\PYG{n}{nxt\PYGZus{}motor\PYGZus{}set\PYGZus{}count}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}MOTOR\PYGZus{}L}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{   }\PYG{c+cm}{/* reset left motor count         */}
+\PYG{n}{nxt\PYGZus{}motor\PYGZus{}set\PYGZus{}count}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}MOTOR\PYGZus{}R}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{   }\PYG{c+cm}{/* reset right motor count        */}
+
+\PYG{c+cm}{/* Initial state */}
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{xe}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+cm}{/* target value */}
+\PYG{n}{setpoint}\PYG{+w}{            }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{xe}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+\PYG{n}{initial\PYGZus{}time}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ecrobot\PYGZus{}get\PYGZus{}systick\PYGZus{}ms}\PYG{p}{();}
+\PYG{n}{init\PYGZus{}time}\PYG{p}{(}\PYG{n}{initial\PYGZus{}time}\PYG{p}{);}
+
+\PYG{c+cm}{/* Gyro calibration */}
+\PYG{n}{gyro\PYGZus{}offset}\PYG{+w}{         }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{gyro\PYGZus{}offset\PYGZus{}sum}\PYG{+w}{     }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{avg\PYGZus{}cnt}\PYG{+w}{             }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{n}{nxtSegway\PYGZus{}mode}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CAL\PYGZus{}MODE}\PYG{p}{;}
+
+\PYG{k}{break}\PYG{p}{;}
+
+\PYG{k}{case}\PYG{p}{(}\PYG{n+no}{CAL\PYGZus{}MODE}\PYG{p}{):}
+
+\PYG{n}{gyro\PYGZus{}offset\PYGZus{}sum}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{ecrobot\PYGZus{}get\PYGZus{}gyro\PYGZus{}sensor}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}GYRO}\PYG{p}{);}
+\PYG{c+cm}{/* accumulation of the values given by the gyro */}
+
+\PYG{n}{avg\PYGZus{}cnt}\PYG{o}{++}\PYG{p}{;}
+
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{((}\PYG{n}{ecrobot\PYGZus{}get\PYGZus{}systick\PYGZus{}ms}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{initial\PYGZus{}time}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{l+m+mi}{1500}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{gyro\PYGZus{}offset}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{gyro\PYGZus{}offset\PYGZus{}sum}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{avg\PYGZus{}cnt}\PYG{p}{;}
+\PYG{c+cm}{/* mean of the previous measures */}
+
+\PYG{n}{ecrobot\PYGZus{}sound\PYGZus{}tone}\PYG{p}{(}\PYG{l+m+mi}{440}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{500}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{30}\PYG{p}{);}\PYG{+w}{       }\PYG{c+cm}{/* beep a tone                 */}
+\PYG{n}{nxtSegway\PYGZus{}mode}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CONTROL\PYGZus{}MODE}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{break}\PYG{p}{;}
+
+\PYG{k}{case}\PYG{p}{(}\PYG{n+no}{CONTROL\PYGZus{}MODE}\PYG{p}{):}
+
+\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{getMotorAngle}\PYG{p}{();}
+\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{getGyro}\PYG{p}{(}\PYG{n}{gyro\PYGZus{}offset}\PYG{p}{);}
+\PYG{n}{dt}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{delta\PYGZus{}t}\PYG{p}{();}
+\PYG{n}{estimateur}\PYG{p}{();}
+\PYG{n}{controller}\PYG{p}{();}
+\PYG{n}{nxt\PYGZus{}motors\PYGZus{}set\PYGZus{}command}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+
+\PYG{k}{break}\PYG{p}{;}
+
+\PYG{k}{default}\PYG{o}{:}
+\PYG{c+cm}{/* unexpected mode */}
+\PYG{n}{nxt\PYGZus{}motor\PYGZus{}set\PYGZus{}speed}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}MOTOR\PYGZus{}L}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{nxt\PYGZus{}motor\PYGZus{}set\PYGZus{}speed}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}MOTOR\PYGZus{}R}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{k}{break}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{TerminateTask}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{n}{TASK}\PYG{p}{(}\PYG{n}{affichage}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{c+cm}{/*display informations*/}
+\PYG{n}{display\PYGZus{}clear}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+\PYG{c+c1}{//disp(1, \PYGZdq{} PWM  = \PYGZdq{}, (int)(pwmR+pwmL)/2);}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} y[0] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)(}\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{RAD2DEG}\PYG{p}{));}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} y[1] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)(}\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{RAD2DEG}\PYG{p}{));}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} x[0] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)((}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{RAD2DEG}\PYG{p}{));}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} x[1] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)((}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{RAD2DEG}\PYG{p}{));}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} x[2] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)((}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{RAD2DEG}\PYG{p}{));}
+\PYG{n}{disp}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} x[3] = \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)((}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{RAD2DEG}\PYG{p}{));}
+
+\PYG{n}{TerminateTask}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{ISR}\PYG{p}{(}\PYG{n}{isr\PYGZus{}button\PYGZus{}start}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{n}{ecrobot\PYGZus{}status\PYGZus{}monitor}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}isr\PYGZus{}button\PYGZus{}start\PYGZdq{}}\PYG{p}{);}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{ISR}\PYG{p}{(}\PYG{n}{isr\PYGZus{}button\PYGZus{}stop}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{n}{ShutdownOS}\PYG{p}{(}\PYG{n}{E\PYGZus{}OK}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{ISR}\PYG{p}{(}\PYG{n}{isr\PYGZus{}button\PYGZus{}left}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{n}{ecrobot\PYGZus{}status\PYGZus{}monitor}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}isr\PYGZus{}button\PYGZus{}left\PYGZdq{}}\PYG{p}{);}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{ISR}\PYG{p}{(}\PYG{n}{isr\PYGZus{}button\PYGZus{}right}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{n}{ecrobot\PYGZus{}status\PYGZus{}monitor}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}isr\PYGZus{}button\PYGZus{}right\PYGZdq{}}\PYG{p}{);}
+
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

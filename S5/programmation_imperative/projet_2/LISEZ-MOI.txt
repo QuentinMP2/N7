@@ -1,0 +1,97 @@
+% Compte-rendu minimal du mini-projet SDA : LCA et TH
+% Auteur : POINTEAU Quentin
+% Groupe de TP : A
+
+
+**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
+une ligne vide avant et deux après votre réponse.
+
+**Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
+une version PDF en faisant par exemple :
+
+~~~
+pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
+~~~
+
+
+# Exercice 1
+
+## Question 1.4
+
+**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
+d'une SDA.**
+
+Inconvénients : Les grande majorité des opérations sur les listes chaînées se
+font en temps linéaire par rapport à la longueur de la liste.
+Avantages : Les listes chaînées permettent de stocker les données dans un 
+espace mémoire minimal étant données qu'on alloue la mémoire dynamiquement. 
+
+
+
+# Évaluation expérimentale.
+
+## Performance comparée de LCA et TH
+
+Indiquer ici les résultats obtenus.
+
+Resultats pour LCA :
+Borne  : 1000
+Taille : 10000
+Min : 3
+Max : 20
+./evaluer_alea_lca 1000 10000  42,91s user 0,01s system 99% cpu 42,964 total
+
+
+Résultats pour TH :
+Borne  : 1000
+Taille : 10000
+Min : 1
+Max : 21
+./evaluer_alea_th 1000 10000  0,00s user 0,00s system 90% cpu 0,003 total
+
+
+## Qualité du générateur aléatoire
+
+Indiquer les conclusions quant à la qualité du générateur aléatoire.
+
+La table de hachage permet de realiser des operations de traitements/stockage
+des nombres aléatoires beaucoup plus rapidement qu'une liste chaînées.
+En effet, les listes chaînées dans les tables de hachages sont bien plus petites,
+ce qui rend le parcours des listes chaînées beaucoup plus rapide.
+Dans le cas d'une liste chaînées sans table de hachage, chaque opération de
+stockage/traitement nécessite de potentiellement parcourir toute la liste, ce
+qui rend les operations bien plus coûteuses en temps de calcul.
+
+
+
+# Principales difficultés rencontrées
+
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournées.
+
+La généricité ça embrouille les pinceaux très vite.
+C'est une nouvelle notion pas forcément intuitive à implémenter,
+surtout utiliser un module générique dans un module générique.
+Force de persévérance, cette difficulté a été surmontée. Je remercie
+mes camarades qui m'ont gentiment expliqué comment résoudre les
+problèmes que j'avais.
+
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider à la compréhension du
+travail réalisé.
+
+Cette partie peut être vide.
+
+...
+
+
+
+# Bilan personnel
+
+Quel bilan personnel tirez-vous de ce mini-projet ?
+
+Beaucoup de bugs, beaucoup de temps passé à debugger, mais un peu de satisfaction
+quand ça marche.

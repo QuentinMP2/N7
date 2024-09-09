@@ -1,0 +1,82 @@
+network:
+  name: projet_reseau
+  version: 0.1
+  hosts:
+    - serveur-web
+      mode : docker
+      image : apache_n7:latest
+      files : ./files/serveur-web/var:/
+ 
+    - serveur-dns
+      mode : docker
+      image : dns_n7:latest
+      files : ./files/serveur-dns/etc:/
+ 
+    - routeur-services-reseaux
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/routeur-services-reseaux/etc:/
+ 
+    - routeur-services
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/routeur-services/etc:/
+ 
+    - R1
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/R1/etc:/
+ 
+    - R2
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/R2/etc:/
+ 
+ 
+    - routeur-fai
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/routeur-fai/etc:/
+ 
+    - equipement-user1
+      mode : netns
+      init : ./scripts/equipement-user1
+ 
+    - equipement-user2
+      mode : netns
+      init : ./scripts/equipement-user2
+ 
+ 
+    - serveur-web-user2
+      mode : docker
+      image : apache_n7:latest
+      files : ./files/serveur-web-user2/var:/
+
+    - box-user1
+      mode : docker
+      image : dhcp_n7:latest
+      files : ./files/box-user1/etc:/
+ 
+    - box-user2
+      mode : docker
+      image : dhcp_n7:latest
+      files : ./files/box-user2/etc:/
+ 
+  links :
+    - routeur-services:eth2!routeur-services-reseaux:eth2
+    - routeur-services-reseaux:eth1!serveur-dns:eth0
+    - routeur-services:eth1!serveur-web:eth0
+    - R2:eth1!routeur-services-reseaux:eth0
+    - R1:eth1!routeur-services:eth0
+    - box-user1:eth0!routeur-fai:eth1
+    - box-user2:eth0!routeur-fai:eth2
+    - equipement-user1:eth0!box-user1:eth1
+ 
+  bridges:
+    - Switch0
+      interfaces: R2:eth0!R1:eth0!routeur-fai:eth0!
+    - Switch1
+      interfaces: box-user2:eth1!equipement-user2:eth0!serveur-web-user2:eth0!
+ 
+  consoles :
+    - all

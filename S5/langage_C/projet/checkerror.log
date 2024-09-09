@@ -1,0 +1,3 @@
+<stdin>: In function 'test':
+<stdin>:4:26: error: implicit declaration of function 'module_carre' [-Werror=implicit-function-declaration]
+cc1: all warnings being treated as errors

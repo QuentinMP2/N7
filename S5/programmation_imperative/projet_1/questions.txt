@@ -1,0 +1,109 @@
+Auteur 1 (exercice 1 & 3) : Quentin Pointeau
+Auteur 2 (exercice 2)     : Alexandre Barthès
+
+Vous devez répondre de manière courte aux questions suivantes.
+Il n'est pas demandé de modifier le programme que vous avez écrit mais
+simplement d'expliquer les modifications qu'il faudrait y apporter.
+
+Il faut remplacer les « ... » par votre réponse en laissant les lignes
+blanches avant et après.
+
+--------------------------------------------------------------------------------
+C1. Que se passe-t-il si dans Jeu_Devin_Exo2 l'utilisateur répond d'abord trop
+grand puis toujours trop petit ?
+--------------------------------------------------------------------------------
+
+Réponse : L'ordinateur détecte que l'on triche puisque l'on ne valide jamais sa
+réponse.
+
+
+--------------------------------------------------------------------------------
+C2. Est-on sûr que Jeu_Devin_Exo1 se termine ?  Quel argument peut-on donner ?
+--------------------------------------------------------------------------------
+
+Réponse : Il ne se termine pas forcément. En effet, si l'on propose toujours le
+même nombre sans que ce soit celui à trouver, alors la partie continue indéfiniment.
+
+
+--------------------------------------------------------------------------------
+C3. Est-on sûr que Jeu_Devin_Exo2 se termine ?  Quel argument peut-on donner ?
+--------------------------------------------------------------------------------
+
+Réponse : Les seuls cas où le jeu ne termine pas sont ceux où l'utilisateur ne
+valide jamais avoir choisi un nombre et le cas où l'utilisateur ne répond pas g,p
+ou t pour les indications à donner à l'ordinateur.
+
+
+--------------------------------------------------------------------------------
+F1. Les noms Jeu_Devin_Exo1, Jeu_Devin_Exo2 et Jeu_Devin_Exo3 ne sont pas très
+parlants.  Par quoi pourrait-on les remplacer ?
+--------------------------------------------------------------------------------
+
+Réponse : Par leur R0 respectif.  
+
+
+--------------------------------------------------------------------------------
+E1. Quelles sont les modifications à apporter à votre programme pour chercher
+des nombres compris entre 1 et 9999 ?
+--------------------------------------------------------------------------------
+
+Réponse : Il faut modifier la valeur de la constante BORNE_SUP par 9999.
+
+
+--------------------------------------------------------------------------------
+E2. Quelles sont les modifications à apporter pour que que l'utilisateur
+puisse utiliser aussi les caractères <, > et = pour indiquer si le nombre
+proposé est trop petit, trop grand ou le bon ?
+--------------------------------------------------------------------------------
+
+Réponse : Rajouter des conditions pour accepter les caractères <, > et = dans la 
+boucle TantQue (ligne 57) et rajouter une condition dans les "si" (ligne 72 et 79).
+
+
+--------------------------------------------------------------------------------
+E3. On veut limiter le nombre de tentatives à 10.  Si le nombre n'a pas été
+trouvé avant, le joueur a perdu.  Comment prendre en compte cette évolution ?
+--------------------------------------------------------------------------------
+
+Réponse : Il fait ajouter une variable booléenne APerdu qui devient vrai lorsque
+la variable Nb_Essais vaut 10. APerdu permettrait donc de sortir de la boucle et
+d'afficher un message pour informer l'utilisateur qu'il a perdu pour excès de
+tentatives.
+
+
+--------------------------------------------------------------------------------
+E4. La recherche dichotomique conduit à toujours proposer les mêmes nombres.
+Comment faire pour donner l'impression que le programme joue comme un humain
+tout en restant efficace ?
+--------------------------------------------------------------------------------
+
+Réponse : Il faut ajouter de l'aléatoire. Au lieu de prendre le milieu pour couper
+le tableau, on prend un nombre aléatoire dans l'intervalle BorneInf..BorneSup.
+
+
+--------------------------------------------------------------------------------
+E5. Actuellement, l'utilisateur doit attendre la fin d'un jeu pour quitter le
+programme.  On veut qu'il puisse le faire dès qu'il saisit 0 quand on lui pose
+une question. Le programme doit alors dire que l'utilisateur a abandonné la
+partie.  Comment faire ?
+--------------------------------------------------------------------------------
+
+Réponse : On pourrait ajouter une condition à chaque entrée de la part de
+l'utilisateur pour vérifier si cette entrée vaut '0', auquel cas une variable
+booléenne Abandonne deviendrait vraie et ferait sortir de la boucle, ce qui
+terminerait la partie.
+
+
+--------------------------------------------------------------------------------
+E6. Quand le programme détecte que l'utilisateur a triché, comment faire pour
+que le programme explique au joueur quand il a triché ?
+--------------------------------------------------------------------------------
+
+Réponse : Lorsque le programme détecte que l'utilisateur triche, il lui annonce
+qu'il triche puis lui demande le nombre qu'il avait choisi au départ. L'ordinateur
+peut ensuite afficher à l'utilisateur l'essai où l'indication donnée est erronée.
+Pour cela, il est donc nécessaire de stocker toutes les réponses de l'utilisateur
+et les propositions de l'ordinateur associées.
+
+
+------------

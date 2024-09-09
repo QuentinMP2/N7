@@ -1,0 +1,266 @@
+% Validation de A5
+% 2023-10-27 14:39:42.394110
+
+
+################################################################################
+# Modification des fichiers fournis
+################################################################################
+
+
+================================================================================
+## Fichiers qui NE devaient PAS être modifiés
+================================================================================
+
+* Fichier alea.adb non modifié... ok
+* Fichier alea.ads non modifié... ok
+
+================================================================================
+## Fichiers qui DEVAIENT être modifiés
+================================================================================
+
+* Fichier jeu_devin_exo1.adb modifié... ok
+* Fichier jeu_devin_exo2.adb modifié... ok
+* Fichier jeu_devin_exo3.adb modifié... ok
+* Fichier questions.txt modifié... ok
+* Fichier rapport.pdf modifié... ok
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+
+################################################################################
+# Compilations
+################################################################################
+
+* Compilation de jeu_devin_exo1.adb... ok
+* Compilation de jeu_devin_exo2.adb... ok
+
+  | jeu_devin_exo2.adb:2:09: warning: no entities of "Ada.Integer_Text_Io" are referenced
+  | jeu_devin_exo2.adb:2:28: warning: use clause for package "Integer_Text_IO" has no effect
+  | jeu_devin_exo2.adb:3:06: warning: unit "Alea" is not referenced
+
+* Compilation de jeu_devin_exo3.adb... ok
+
+  | jeu_devin_exo3.adb:16:09: warning: use clause for package "Mon_Alea" has no effect
+
+* Running gnatclean... ok
+
+
+################################################################################
+# Exécutions
+################################################################################
+
+* Running gnatclean... ok
+
+================================================================================
+## Exécution de jeu_devin_exo1
+================================================================================
+
+* Compilation de jeu_devin_exo1.adb... ok
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo1-sujet1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo1 < "900 10000 990 988 422 420 421"... ok
+* Comparaison de jeu_devin_exo1-sujet1.expected et jeu_devin_exo1-sujet1.out... différents
+
+   | J'ai choisi un nombre compris entre 1 et 999.            |  J'ai choisi un nombre entre 1 et 999.
+   | Trop grand.                                              |  Erreur : vous n'avez pas saisi un nombre entre 1 et 999.
+
+
+================================================================================
+## Exécution de jeu_devin_exo2
+================================================================================
+
+* Compilation de jeu_devin_exo2.adb... ok
+
+  | jeu_devin_exo2.adb:3:06: warning: unit "Alea_Triche" is not referenced
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-sujet1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g x t"... ok
+* Comparaison de jeu_devin_exo2-sujet1.expected et jeu_devin_exo2-sujet1.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o |
+   |                                                             >  Avez-vous choisi un nombre entre 1 et 999 (o/n) ?
+   |                                                             >  o
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  g
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? x                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   | Je n'ai pas compris. Merci de repondre :                    |  x
+   |                                                             >
+   |                                                             >  Je n'ai pas compris. Merci de me repondre : 
+   |    t si j'ai trouve le nombre                               |  t si j'ai trouve le nombre.
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? t                  |  t
+   |                                                             >
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche499.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g p p p p p p p p p"... ok
+* Comparaison de jeu_devin_exo2-triche499.expected et jeu_devin_exo2-triche499.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o |
+   |                                                             >  Avez-vous choisi un nombre entre 1 et 999 (o/n) ?
+   |                                                             >  o
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  g
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   | Vous trichez. J'arrete cette partie.                        |  p
+   |                                                             >
+   |                                                             >  Vous trichez, j'arrete cette partie.
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-sujet2.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "x O o T"... ERREUR
+
+  ! raised ADA.IO_EXCEPTIONS.END_ERROR : a-textio.adb:517
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche1000.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o p p p p p p p p p p"... ok
+* Comparaison de jeu_devin_exo2-triche1000.expected et jeu_devin_exo2-triche1000.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o |
+   |                                                             >  Avez-vous choisi un nombre entre 1 et 999 (o/n) ?
+   |                                                             >  o
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  p
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   | Vous trichez. J'arrete cette partie.                        |  p
+   |                                                             >
+   |                                                             >  Vous trichez, j'arrete cette partie.
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche0.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g g g g g g g g g"... ERREUR
+
+  ! raised ADA.IO_EXCEPTIONS.END_ERROR : a-textio.adb:517
+
+
+================================================================================
+## Exécution de jeu_devin_exo3
+================================================================================
+
+* Compilation de jeu_devin_exo3.adb... ok
+
+  | jeu_devin_exo3.adb:16:09: warning: use clause for package "Mon_Alea" has no effect
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "3 4 0"... ok
+* Comparaison de jeu_devin_exo3-exemple1.expected et jeu_devin_exo3-exemple1.out... différents
+
+   |                                                        >  Erreur : veuillez choisir un nombre entre 0 et 2.
+   | Choix incorrect.                                       <
+   |                                                        >  Erreur : veuillez choisir un nombre entre 0 et 2.
+   | Choix incorrect.                                       <
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple3.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "1 900 100 421 2 o t 1 421 0"... ok
+* Comparaison de jeu_devin_exo3-exemple3.expected et jeu_devin_exo3-exemple3.out... différents
+
+   |                                                             |  J'ai choisi un nombre entre 1 et 999.
+   | J'ai choisi un nombre compris entre 1 et 999.               <
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o |  Avez-vous choisi un nombre entre 1 et 999 (o/n) ?
+   |                                                             >  o
+   |                                                             >
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? t                  |  Trop (g)rand, trop (p)etit ou (t)rouve ?
+   |                                                             >  t
+   |                                                             >
+   |                                                             |  J'ai choisi un nombre entre 1 et 999.
+   | J'ai choisi un nombre compris entre 1 et 999.               <
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple2.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "3 -1 0"... ok
+* Comparaison de jeu_devin_exo3-exemple2.expected et jeu_devin_exo3-exemple2.out... différents
+
+   |                                                        >  Erreur : veuillez choisir un nombre entre 0 et 2.
+   | Choix incorrect.                                       <
+   |                                                        >  Erreur : veuillez choisir un nombre entre 0 et 2.
+   | Choix incorrect.                                       <
+
