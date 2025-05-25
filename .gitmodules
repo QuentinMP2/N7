@@ -7,3 +7,6 @@
 [submodule "2A/Semester 7/intergiciels/Hagimule"]
 	path = 2A/Semester 7/intergiciels/Hagimule
 	url = git@github.com:QuentinMP2/Hagimule.git
+[submodule "2A/Semester 7/interco"]
+	path = 2A/Semester 7/interco
+	url = git@git.inpt.fr:dreumonte/interco.git
