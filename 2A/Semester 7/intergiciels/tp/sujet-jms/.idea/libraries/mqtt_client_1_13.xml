@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mqtt-client-1.13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/lib/extra/mqtt-client-1.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+[submodule "2A/Semester 7/traduction_des_langages/mini-compiler"]
+	path = 2A/Semester 7/traduction_des_langages/mini-compiler
+	url = git@github.com:QuentinMP2/mini-compiler.git
+[submodule "2A/Semester 7/architecture_des_ordinateurs/UART-FPGA"]
+	path = 2A/Semester 7/architecture_des_ordinateurs/UART-FPGA
+	url = git@github.com:Antoine2803/UART-FPGA.git
+[submodule "2A/Semester 7/intergiciels/Hagimule"]
+	path = 2A/Semester 7/intergiciels/Hagimule
+	url = git@github.com:QuentinMP2/Hagimule.git

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bin2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/bin/activemq.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/bin/wrapper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

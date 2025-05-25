@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="camel">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/lib/camel/camel-jms-2.16.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/lib/camel/activemq-camel-5.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/lib/camel/camel-core-2.16.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/apache-activemq/lib/camel/camel-spring-2.16.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
