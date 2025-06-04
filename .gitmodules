@@ -10,3 +10,15 @@
 [submodule "2A/Semester 7/interco"]
 	path = 2A/Semester 7/interco
 	url = git@git.inpt.fr:dreumonte/interco.git
+[submodule "2A/Semester_08/controle_apprentissage/cea"]
+	path = 2A/Semester_08/controle_apprentissage/cea
+	url = git@git.inpt.fr:dreumonte/cea.git
+[submodule "2A/Semester_08/appli_web/frappe"]
+	path = 2A/Semester_08/appli_web/frappe
+	url = git@git.inpt.fr:inp-net/frappe.git
+[submodule "2A/Semester_08/ingenierie_reseaux/contre_soiree_inge_des_reseaux"]
+	path = 2A/Semester_08/ingenierie_reseaux/contre_soiree_inge_des_reseaux
+	url = git@github.com:Antoine2803/contre_soiree_inge_des_reseaux.git
+[submodule "2A/Semester_08/systemes_exploitation/QOS"]
+	path = 2A/Semester_08/systemes_exploitation/QOS
+	url = git@github.com:QuentinMP2/QOS.git
